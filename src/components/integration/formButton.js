@@ -2,16 +2,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-
 const SearchInputComponent = ({ value, onChange, label }) => {
-    return (
-        <FormControl>
-            {label && <InputLabel htmlFor="component-simple">{label}</InputLabel>}
-            <Input id="component-simple" value={value} onChange={onChange} />
-        </FormControl>
+    return (<form>
+            {label && <label htmlFor="component-simple">{label}</label>}
+            <input id="component-simple" value={value} onChange={onChange} />
+        </form>
     )
 };
 

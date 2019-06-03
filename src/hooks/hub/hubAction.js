@@ -16,20 +16,15 @@ const useDataApi = (initialUrl, initialData) => {
         let didCancel = false;
         const fetchData = async () => {
             dispatch({ type: FETCH_INIT });
-
             try {
-
                 const result = await axios(url);
                 if (!didCancel) {
                     dispatch({ type: FETCH_SUCCESS, payload: result.data });
                 }
-
             } catch (error) {
-
                 if (!didCancel) {
                     dispatch({ type: FETCH_FAILURE });
                 }
-
             }
         };
 

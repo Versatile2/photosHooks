@@ -1,55 +1,26 @@
-import React, {
-    Fragment, useState
-} from 'react';
-import useDataApi from '../../hooks/hub/hubAction';
-import composeQuery from '../../utils/urlUtil';
-import urls from '../../assets/url';
-import SearchInputComponent from '../../components/integration/searchInput';
-const baseSearchQuery = '';
-
+import React, { Fragment } from 'react';
+import './hubStyle.scss';
 
 const VisibleHubContainer = (props) => {
-    const [query, setQuery] = useState(baseSearchQuery);
-    const [{ data, isLoading, isError }, doFetch] = useDataApi(
-        composeQuery(urls.hits, baseSearchQuery),
-        { hits: [] },
-    );
+    console.log('HUB' , props);
 
-    const renderLoading = () => {
-        return (< div > Loading ...</div >);
-    }
-
-    const renderContent = (hits) => {
-        return (<ul>
-            {JSON.stringify(props.data)}
-
-            {hits.map(item => (
-                <li key={item.objectID}>
-                    <a href={item.url}>{item.title}</a>
-                </li>
-            ))}
-        </ul>);
-    }
-
-    const renderSearchForm = (value, onSubmit, onChange) => {
-        return (<form
-            onSubmit={onSubmit}
-        >
-            <SearchInputComponent value={value} onSubmit={onSubmit} onChange={onChange}></SearchInputComponent>
-            <button type="submit">Search</button>
-
-        </form>)
+    const renderLink = (page) => {
+        return (
+                <button  onClick={()  => {
+                    props.history.push(page.routerUrl, page.props); 
+                }}>
+                {page.props.pageLabel}
+                </button>
+                )
     }
 
     return (
-        <Fragment>
-            {renderSearchForm(query, event => {
-                doFetch(composeQuery(urls.hits, query));
-                event.preventDefault();
-            }, event => setQuery(event.target.value))}
-            {isError && <div>Something went wrong ...</div>}
-            {isLoading ? renderLoading() : renderContent(data.hits)}
-        </Fragment>
+        <div className="App">
+                {props.data.hub.hubLabel}
+                {props.data.hub.pages.map((page) => {
+                    return renderLink(page);         
+                    })}
+        </div>
     );
 }
 
