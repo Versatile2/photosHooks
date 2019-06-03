@@ -8,7 +8,7 @@ import SearchInputComponent from '../../components/integration/searchInput';
 const baseSearchQuery = '';
 
 
-const VisibleHubContainer = () => {
+const VisibleHubContainer = (props) => {
     const [query, setQuery] = useState(baseSearchQuery);
     const [{ data, isLoading, isError }, doFetch] = useDataApi(
         composeQuery(urls.hits, baseSearchQuery),
@@ -21,6 +21,8 @@ const VisibleHubContainer = () => {
 
     const renderContent = (hits) => {
         return (<ul>
+            {JSON.stringify(props.data)}
+
             {hits.map(item => (
                 <li key={item.objectID}>
                     <a href={item.url}>{item.title}</a>

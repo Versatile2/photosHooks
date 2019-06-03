@@ -1,5 +1,5 @@
 
-const composeQuery = (url, queryParamater) => {
+const composeQuery = (url, queryParamater = '') => {
     return `${url}${queryParamater}`;
 }
 
