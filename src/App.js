@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './App.scss';
+
 import VisibleHubContainer from './containers/hub/VIsibleHubContainer';
 import VisibleNewsContainer from './containers/news/VisbileNewsContainer';
 
@@ -16,7 +18,7 @@ const App = () => {
   const renderContent = () => {
     return (
     <Router>
-      <div>
+      <div className={styles.App}>
         <Route exact path="/" component={(props) => <VisibleHubContainer {...props} data={JSON.parse(data.files.photoHooksConfig.content)}/>}/>
         <Route path="/news" component={VisibleNewsContainer}/>
         </div>

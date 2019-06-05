@@ -1,0 +1,16 @@
+@import './assets/color.scss'; 
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $fontPrimary;
+  background-color:$backgroundColor;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

@@ -1,0 +1,121 @@
+@import '../../assets/color.scss';
+
+
+.HubContainer {
+    display: flex;
+    height: 100vh;
+    float: 1;
+    flex-direction: column;
+}
+
+.HubTitleContainer {
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    .HubTitleLeftAction {
+        margin: 16px;
+
+        .HubTitle {
+            color: $fontPrimary;
+        }
+    }
+
+    .HubTitleRightAction {
+        margin: 16px;
+
+        button {
+            color: $fontPrimary;
+            background-color: transparent;
+            border: 0px;
+            align-self: flex-end;
+        }
+    }
+
+}
+
+
+.HubButtonContainer {
+    width: 80vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    overflow-x: visible;
+
+    .HubButton {
+        background-color: transparent;
+        border: 0px;
+        font-weight: 600;
+        font-size: 10rem;
+        text-align: center;
+
+        .HubButtonLetter {
+            display: inline-block;
+            animation-name: rotateOut;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .HubButtonLetterAccent {
+            display: inline-block;
+            color: $fontAccent;
+            animation-name: rotateOut;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+    }
+
+    .HubButton:hover {
+        .HubButtonLetter {
+            animation-name: rotateIn;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .HubButtonLetterAccent {
+            animation-name: rotateIn;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+    }
+
+
+}
+
+
+@keyframes rotateIn {
+    0% {
+        -webkit-transform: rotateY(10deg);
+        /* Safari */
+        transform: rotateY(10deg);
+        /* Standard syntax */
+    }
+
+    100% {
+        -webkit-transform: rotateY(180deg);
+        /* Safari */
+        transform: rotateY(180deg);
+        /* Standard syntax */
+    }
+}
+
+@keyframes rotateOut {
+    0% {
+        -webkit-transform: rotateY(180deg);
+        /* Safari */
+        transform: rotateY(180deg);
+        /* Standard syntax */
+    }
+
+    100% {
+        -webkit-transform: rotateY(180deg);
+        /* Safari */
+        transform: rotateY(0deg);
+        /* Standard syntax */
+    }
+}
