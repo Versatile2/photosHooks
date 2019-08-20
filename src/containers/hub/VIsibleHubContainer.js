@@ -3,7 +3,10 @@ import './hub.scss';
 import HubMenuLinkComponent from './components/hubMenuLink';
 
 const VisibleHubContainer = (props) => {
-    const [menuItems, setmenuItems] = useState([]);
+    const [currentIndexSelected, setCurrentIndexSelected] = useState(props.data.hub.pages.length + 1);
+
+    const handleToogleHover = (index) => currentIndexSelected === index ? setCurrentIndexSelected(props.data.hub.pages.length + 1) : setCurrentIndexSelected(index);
+    const onLinkClicked = (page) => props.history.push(page.routerUrl, page.props);
 
     return (
         <div className={"HubContainer"}>
@@ -19,24 +22,14 @@ const VisibleHubContainer = (props) => {
             </div>
             <div className={"HubButtonContainer"}>
                 {props.data.hub.pages.map((page, index) => {
-                    menuItems[index] = false;
-                    return <HubMenuLinkComponent page={page} toggleHover={() => {
-                        if (menuItems[index] === true) {
-                            menuItems.forEach((item, itemIndex) => {
-                                menuItems[itemIndex] = !(itemIndex === index);
-                            });
-                        } else {
-                            menuItems.forEach((item, itemIndex) => {
-                                menuItems[itemIndex] = itemIndex === index;
-                            });
-                        }
-                        setmenuItems([...menuItems]);
-                        console.log(menuItems)
-                    }}
-                        anotherHovered={menuItems[index]}
+                    return <HubMenuLinkComponent page={page} toggleHover={handleToogleHover.bind(this, index)}
+                        anotherHovered={currentIndexSelected !== index && currentIndexSelected <= props.data.hub.pages.length}
+                        onClick={onLinkClicked.bind(this, page)}
                         key={page.key}
+
                     />;
                 })}
+
             </div>
         </div>
     );

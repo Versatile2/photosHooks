@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './App.scss';
-
-import VisibleHubContainer from './containers/hub/VIsibleHubContainer';
+import VisibleHubContainer from './containers/hub/VIsibleHubContainer'
 import VisibleNewsContainer from './containers/news/VisbileNewsContainer';
+import VisibleSimpleArchitectureContainer from './containers/simpleArchitecture/VisibleSimpleArchitectureContainer';
 
 import useDataApi from './hooks/hub/hubAction';
 import composeQuery from './utils/urlUtil';
@@ -17,18 +17,20 @@ const App = () => {
 
   const renderContent = () => {
     return (
-    <Router>
-      <div className={styles.App}>
-        <Route exact path="/" component={(props) => <VisibleHubContainer {...props} data={JSON.parse(data.files.photoHooksConfig.content)}/>}/>
-        <Route path="/news" component={VisibleNewsContainer}/>
+      <Router>
+        <div className={styles.App}>
+          <Route exact path="/" component={(props) => <VisibleHubContainer {...props} data={JSON.parse(data.files.photoHooksConfig.content)} />} />
+          <Route path="/news" component={VisibleNewsContainer} />
+          <Route path="/simplearchitecture" component={VisibleSimpleArchitectureContainer} />
+
         </div>
-  </Router>
+      </Router>
     )
   }
 
   return (
     <React.Fragment>
-        {!isLoading && !isError && data !== undefined && data.files !== undefined  && renderContent()}
+      {!isLoading && !isError && data !== undefined && data.files !== undefined && renderContent()}
     </React.Fragment>)
 }
 

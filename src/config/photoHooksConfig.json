@@ -1,0 +1,52 @@
+{
+    "hub": {
+        "hubLabel": "Photo Hooks",
+        "pages": [
+            {
+                "key": "1",
+                "routerUrl": "/news",
+                "props": {
+                    "pageTitle": "Search your news !",
+                    "pageLabel": "News"
+                }
+            },
+            {
+                "key": "2",
+                "routerUrl": "/SimpleArchitecture",
+                "props": {
+                    "pageTitle": "Journal of Liege",
+                    "pageLabel": "Journal of Liege", 
+                    "pageSubTitle": "Meet the black & white",
+                    "images": [
+                        {
+                            "title": "first",
+                            "url": "https://c.pxhere.com/photos/2b/55/architecture_symmetry_building_repetition_lines_station_li_ge_rhythm-1209414.jpg!d"
+                        },
+                        {
+                            "title": "second",
+                            "url": "https://c.pxhere.com/photos/2b/55/architecture_symmetry_building_repetition_lines_station_li_ge_rhythm-1209414.jpg!d"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "1",
+                "routerUrl": "/news",
+                "props": {
+                    "pageTitle": "Search your news !",
+                    "pageLabel": "News"
+                }
+            },
+            {
+                "key": "2",
+                "routerUrl": "/SimpleArchitecture",
+                "props": {
+                    "pageTitle": "Search your newss !",
+                    "pageLabel": "LGXBW"
+                }
+            }
+        ]
+    },
+    "envName": "LocalDev",
+    "URL": "localhost:8090"
+}

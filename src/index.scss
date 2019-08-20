@@ -8,6 +8,11 @@ body {
   color: $fontPrimary;
   background-color:$backgroundColor;
 
+
+}
+
+::-webkit-scrollbar { 
+  display: none; 
 }
 
 code {
